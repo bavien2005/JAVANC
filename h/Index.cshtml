@@ -1,0 +1,75 @@
+﻿
+@{
+    List<CaiConCac.Models.NV> ds = ViewBag.ds; 
+    ViewBag.Title = "Index";
+}
+
+<style>
+    table 
+    {
+        width : 700px
+
+    }
+    th, td 
+    {
+        border: 1px solid black ;padding : 3px
+    }
+</style>
+
+
+<h2>DANH SACH LUONG > 10 </h2>
+
+<table>
+
+    <tr>
+        <th>Ma</th>
+        <th>Ma</th>
+        <th>Ma</th>
+        <th>Ma</th>
+        <th>Ma</th>
+
+    </tr>
+    @foreach (var i in ds)
+    {
+        
+        <tr>
+            @if(i.luong == 1000)
+            {
+            <td>@i.ma</td>
+            <td>@i.ngaySinh.ToString()</td>
+            <td>@i.diaChi</td>
+            <td>@i.gioiTinh</td>
+            <td>@i.luong</td>
+            }
+        </tr>
+    }
+</table>
+
+<h2>DANH SACH LUONG > 10 </h2>
+<table>
+
+    <tr>
+        <th>Ma</th>
+        <th>Ma</th>
+        <th>Ma</th>
+        <th>Ma</th>
+        <th>Ma</th>
+
+    </tr>
+    @foreach (var i in ds)
+    {
+
+        <tr>
+            @if (i.luong >= 2000)
+            {
+
+                <td>@i.ma</td>
+                <td>@i.ngaySinh.ToString()</td>
+                <td>@i.diaChi</td>
+                <td>@i.gioiTinh</td>
+                <td>@i.luong</td>
+            }
+        </tr>
+    }
+</table>
+

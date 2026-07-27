@@ -1,0 +1,39 @@
+﻿@model CaiConCac.Models.NV
+@{
+    ViewBag.Title = "Input";
+}
+
+<style>
+    .field-validation-error { 
+        color: red
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Ma:
+        @Html.TextBoxFor(m => m.ma)
+        @Html.ValidationMessageFor(m => m.ma)
+    </p>
+    <p>
+        Ngay Sinh:
+        @Html.TextBoxFor(m => m.ngaySinh , new {type = "date"})
+        @Html.ValidationMessageFor(m => m.ngaySinh)
+    </p>
+    <p>
+        Dia Chi:
+        @Html.DropDownListFor(m => m.diaChi, new SelectList(new[]  {"QN" , "HN" , "CC"}))
+        @Html.ValidationMessageFor(m => m.diaChi)
+    </p>
+    <p>
+        Gioi Tinh:
+        @Html.RadioButtonFor(m => m.gioiTinh, "Nam", new { id = "Nam" })
+        <label for="Nam"> Nam</label>
+        @Html.RadioButtonFor(m => m.gioiTinh, "Nu", new { id = "Nu" })
+        <label for="Nu"> Nử</label>
+
+    </p>
+    <button type="submit"> submit</button>
+}
+

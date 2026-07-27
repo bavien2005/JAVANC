@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Nguyen Ba Vien</title>
+
+    <style>
+        *{
+            font-family : Calibri
+        }
+
+        header {
+            text-align : center ;
+            padding : 10px ; 
+            border : 1px solid black ; 
+            color :  white; 
+            font-size : 60px; 
+            background-color : aqua ; 
+        }
+
+        nav { 
+            background-color : blanchedalmond ; 
+            padding : 4px; 
+            text-align : center ; 
+            margin-top : 4px; 
+
+        }
+
+            nav a {
+                color: black;
+                text-decoration: none;
+                padding: 20px;
+            }
+    </style>
+</head>
+
+<body>
+    <header>Kiem Tra TX1 </header>
+    <nav>
+        @Html.ActionLink("HIENTHI", "Index", "NV",
+        new { area = "" },
+        new { @class = "nav-link" })
+
+        @Html.ActionLink("Nhap Du Lieu", "Input", "NV",
+        new { area = "" },
+        new { @class = "nav-link" })
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
