@@ -1,0 +1,70 @@
+﻿@model TX22.Models.SanPham
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2></h2>
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<h3>Xác Nhận Xóa Sản Phẩm Này</h3>
+<div>
+    <h4>SanPham</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HangSanXuat.TenHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HangSanXuat.TenHang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonGia)
+        </dd>
+
+        <dt>
+            @{
+                var path = "~/images/" + Model.HinhAnh;
+            }
+            <img src="@Url.Content(path)" class="img-thumbnail" width="200" alt="Empty file" />
+
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HinhAnh)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("Delete", "SanPhams", FormMethod.Post,
+        new { onSubmit = "return confirm ('Bạn có chắc chắn muốn xóa không?!')" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-danger" /> |
+            @Html.ActionLink("Quay lại", "Index")
+        </div>
+    }
+</div>

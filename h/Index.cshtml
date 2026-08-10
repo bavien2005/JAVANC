@@ -1,75 +1,77 @@
-﻿
+﻿@model IEnumerable<TX22.Models.SanPham>
+
 @{
-    List<CaiConCac.Models.NV> ds = ViewBag.ds; 
     ViewBag.Title = "Index";
 }
 
-<style>
-    table 
-    {
-        width : 700px
-
-    }
-    th, td 
-    {
-        border: 1px solid black ;padding : 3px
-    }
-</style>
-
-
-<h2>DANH SACH LUONG > 10 </h2>
-
-<table>
-
-    <tr>
-        <th>Ma</th>
-        <th>Ma</th>
-        <th>Ma</th>
-        <th>Ma</th>
-        <th>Ma</th>
-
-    </tr>
-    @foreach (var i in ds)
-    {
-        
-        <tr>
-            @if(i.luong == 1000)
+@using (Html.BeginForm())
             {
-            <td>@i.ma</td>
-            <td>@i.ngaySinh.ToString()</td>
-            <td>@i.diaChi</td>
-            <td>@i.gioiTinh</td>
-            <td>@i.luong</td>
+                <div class="input-group">
+                    <input type="text" placeholder="Nhập đơn giá cần tìm" name="search" 
+                           value="@Request["search"]"  class="form-control" />
+                    <input type="submit" value="Tìm kiếm" class="btn-group"/>
+                </div>
             }
-        </tr>
-    }
-</table>
-
-<h2>DANH SACH LUONG > 10 </h2>
-<table>
-
+@Html.ValidationMessage("search" , new {@class="text-danger"})
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
     <tr>
-        <th>Ma</th>
-        <th>Ma</th>
-        <th>Ma</th>
-        <th>Ma</th>
-        <th>Ma</th>
-
+        <th>
+            STT.
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HangSanXuat.TenHang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenSP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DonGia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HinhAnh)
+        </th>
+        <th>
+           Chức Năng
+        </th>
+        <th></th>
     </tr>
-    @foreach (var i in ds)
-    {
 
-        <tr>
-            @if (i.luong >= 2000)
-            {
-
-                <td>@i.ma</td>
-                <td>@i.ngaySinh.ToString()</td>
-                <td>@i.diaChi</td>
-                <td>@i.gioiTinh</td>
-                <td>@i.luong</td>
+@for (int i = 0; i < Model.Count(); i ++) {
+    var item = Model.ElementAt(i);
+    <tr>
+        <td>
+            @(i+1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HangSanXuat.TenHang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DonGia)
+        </td>
+        <td>
+            @{
+                var path = "~/images/" + item.HinhAnh;
             }
-        </tr>
-    }
-</table>
+            <img src="@Url.Content(path)" class="img-thumbnail" width="200" alt="Empty file" />
+        </td>
+        <td>
+            @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaSP }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id = item.MaSP }) |
+            @Html.ActionLink("xóa", "Delete", new { id = item.MaSP })
+        </td>
+    </tr>
+}
 
+</table>
