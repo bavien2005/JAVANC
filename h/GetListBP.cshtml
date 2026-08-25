@@ -1,0 +1,10 @@
+﻿@model IEnumerable<WebApplication2.Models.BoPhan>
+
+
+@foreach(var item in Model)
+{
+    var u = "/GetTV/" + item.MaBoPhan;
+
+    <li><a href="@u" class="nav-link">@item.TenBoPhan</a></li>
+}
+
