@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Tiêu đề và nút mở menu -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ĐĂNG KÝ PHỎNG VẤN CLB"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000000"/>
+
+        <Button
+            android:id="@+id/btnMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⋮"
+            android:textSize="24sp"/>
+    </LinearLayout>
+
+    <!-- Nhập tên -->
+    <EditText
+        android:id="@+id/edtTen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập tên"
+        android:inputType="textPersonName"/>
+
+    <!-- Nhập tuổi -->
+    <EditText
+        android:id="@+id/edtTuoi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập tuổi"
+        android:inputType="number"/>
+
+    <!-- Chọn lĩnh vực -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lĩnh vực:"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/chkLapTrinh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lập trình"/>
+
+        <CheckBox
+            android:id="@+id/chkKiemThu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kiểm thử"/>
+    </LinearLayout>
+
+    <!-- Chọn ngày hẹn -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ngày hẹn:"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/chkThu2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thứ 2"/>
+
+        <CheckBox
+            android:id="@+id/chkThu5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thứ 5"/>
+    </LinearLayout>
+
+    <!-- Danh sách người đăng ký -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DANH SÁCH ĐĂNG KÝ"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="8dp"/>
+
+    <ListView
+        android:id="@+id/lvDanhSach"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:choiceMode="singleChoice"/>
+
+</LinearLayout>

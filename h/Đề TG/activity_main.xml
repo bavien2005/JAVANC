@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- MÀN HÌNH 1: DANH SÁCH NHÂN VIÊN -->
+    <LinearLayout
+        android:id="@+id/layoutManHinh1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="QUẢN LÝ NHÂN VIÊN"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:padding="12dp"/>
+
+        <!-- Nút lấy danh sách và mở menu -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnLayDanhSach"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Lấy danh sách"/>
+
+            <Button
+                android:id="@+id/btnMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Menu ⋮"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nhấn giữ nhân viên để mở menu"
+            android:textSize="14sp"
+            android:padding="8dp"/>
+
+        <!-- Danh sách nhân viên -->
+        <ListView
+            android:id="@+id/lvNhanVien"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <!-- MÀN HÌNH 2: THÊM / SỬA NHÂN VIÊN -->
+    <LinearLayout
+        android:id="@+id/layoutManHinh2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvTieuDe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="THÔNG TIN NHÂN VIÊN"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="12dp"/>
+
+        <!-- Nhập họ tên -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Họ tên:"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/edtHoTen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập họ tên"
+            android:inputType="textPersonName"/>
+
+        <!-- Chọn ngày sinh bằng DatePicker -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ngày sinh:"
+            android:textSize="18sp"
+            android:layout_marginTop="12dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnChonNgay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chọn ngày"/>
+
+            <TextView
+                android:id="@+id/tvNgaySinh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chưa chọn"
+                android:textSize="18sp"
+                android:padding="12dp"/>
+        </LinearLayout>
+
+        <!-- Chọn nơi sinh -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nơi sinh:"
+            android:textSize="18sp"
+            android:layout_marginTop="12dp"/>
+
+        <Spinner
+            android:id="@+id/spNoiSinh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"/>
+
+        <!-- Đóng màn hình thêm / sửa -->
+        <Button
+            android:id="@+id/btnDong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Đóng"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
